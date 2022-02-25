@@ -29,6 +29,17 @@ public class LogginLabTest {
                 logger.log(Level.INFO, "Threshold finally reached!");
                 assertFalse(lab.thresholdExceeds(i));
             }
+
+        }
+        for (Integer x = finalLimit+1; x > 0; x--) {
+            if (lab.thresholdReached(x)) {
+                logger.log(Level.INFO, "Over the Threshold! It is "+x);
+                assertTrue(lab.thresholdReached(x));
+            } else {
+                logger.log(Level.INFO, "Finally under the Threshold!");
+                assertFalse(lab.thresholdReached(x));
+            }
+
         }
     }
 }
